@@ -23,54 +23,53 @@
             <li><p>프로필</p></li>
         </ul>
     </header>
-    <div class="container">
+    <div class="main-container">
+        <div class="banner-image-wrapper">
+            <img class="banner-image" src="./sources/banner.webp" alt="배너" />
+        </div>
         <div class="banner-container">
-            <img src="./sources/banner.webp" alt="배너" />
-        </div>
-
-         <div class="video-container">
-            <p>넷플릭스에 새로 올라온 콘텐츠</p>
-            <div class="video-list">
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
+            <img class="banner-logo" src="./sources/banner2.webp" alt="배너 로고" />
+            <p class="banner-coment"">무도회에서 우승한 뒤, 결혼을 하고 아들도 얻은 오공은 행복한 나날을 보내고 있었다. 하지만 지구를 약탈하기 위해 속속 침략해 오는 우주인들에 맞서</br> 싸워야 할 시간이 찾아온다.</p>
+            <div class="banner-button-container">
+                <div class="banner-button1">재생</div>
+                <div class="banner-button2">상세 정보</div>
             </div>
         </div>
         <div class="video-container">
-            <p>넷플릭스에 새로 올라온 콘텐츠</p>
-            <div class="video-list">
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-            </div>
-        </div>         
-        <div class="video-container">
-            <p>넷플릭스에 새로 올라온 콘텐츠</p>
-            <div class="video-list">
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
-                <div class="video-item"></div>
+            <p>오늘 대한민국의 TOP10 시리즈</p>
+            <div class="carousel-wrapper" data-carousel>
+            <img src="./sources/arrow_left.svg" class="btn-left" />
+            <div class="video-list"></div>
+            <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
         </div>
         
+        <div class="video-container">
+            <p>희수 님이 시청중인 콘텐츠</p>
+            <div class="carousel-wrapper" data-carousel>
+            <img src="./sources/arrow_left.svg" class="btn-left" />
+            <div class="video-list"></div>
+            <img src="./sources/arrow_right.svg" class="btn-right" />
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <p>섹션 제목 3</p>
+            <div class="carousel-wrapper" data-carousel>
+            <img src="./sources/arrow_left.svg" class="btn-left" />
+            <div class="video-list"></div>
+            <img src="./sources/arrow_right.svg" class="btn-right" />
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <p>섹션 제목 4</p>
+            <div class="carousel-wrapper" data-carousel>
+            <img src="./sources/arrow_left.svg" class="btn-left" />
+            <div class="video-list"></div>
+            <img src="./sources/arrow_right.svg" class="btn-right" />
+            </div>
+        </div>
         <footer class="footer-container">
             <div class="footer-nav-container1">
                 <p>페이스북</p>
@@ -103,5 +102,7 @@
             </div>
         </footer>
     </div>
+    <script src="./carousel.js"></script>
+    <script src="./scroll.js"></script>
 </body>
 </html>
