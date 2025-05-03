@@ -25,17 +25,14 @@ body {
   z-index: 2;
 }
 
+.header-icon {
+  width: 30px;
+  height: 30px;
+}
+
 .header-container.transparent {
   background-color: rgb(20, 20, 20, 0.1);
   transition: background-color 0.3s ease;
-}
-
-.nav-container1 {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 20px;
-  margin-left: 50px;
 }
 
 .header-logo {
@@ -44,27 +41,27 @@ body {
   margin-right: 30px;
 }
 
-.nav-container1 li {
+.nav-container1 {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
   font-size: 14px;
   color: #e5e5e5;
+  margin-left: 50px;
 }
 
 .nav-container2 {
   display: flex;
   align-items: center;
-  gap: 20px;
   list-style: none;
   margin-right: 50px;
-}
-
-.nav-container2 li {
-  font-size: 14px;
   color: #e5e5e5;
+  gap: 20px;
 }
 
 /* main */
 .main-container {
-  /* position: absolute; */
   width: 100%;
   top: 0px;
   left: 0px;
@@ -117,7 +114,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
+  height: 50px;
   background-color: white;
   color: black;
   border-radius: 4px;
@@ -126,15 +123,11 @@ body {
   padding: 0 40px;
 }
 
-.banner-button1:hover {
-  opacity: 80%;
-}
-
 .banner-button2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
+  height: 50px;
   background-color: gray;
   color: white;
   border-radius: 4px;
@@ -143,6 +136,7 @@ body {
   padding: 0 40px;
 }
 
+.banner-button1:hover,
 .banner-button2:hover {
   opacity: 80%;
 }
@@ -154,8 +148,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 50px;
-  margin-top: 10px;
+  padding-left: 50px;
+  margin: 20px 0px;
 }
 
 .video-container p {
@@ -164,6 +158,44 @@ body {
   color: white;
   margin-bottom: 10px;
 }
+
+/* TOP10 캐러셀 전용 아이템 */
+
+.rank-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.rank-carousel-wrapper .video-item {
+  width: 226px;
+  height: 162px;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+}
+
+.rank-carousel-wrapper .rank-number {
+  width: 50%;
+  height: 100%;
+  font-size: 216px;
+  font-weight: bold;
+  color: black;
+  -webkit-text-stroke: 4px gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rank-carousel-wrapper .video-item img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 나머지 콘텐츠 캐러셀 */
 
 .carousel-wrapper {
   position: relative;
@@ -175,22 +207,29 @@ body {
 
 .video-list {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   transition: transform 0.5s ease;
   will-change: transform;
   width: max-content; /* 전체 너비에 따라 확장 */
 }
 
 .video-item {
-  flex: 0 0 200px; /* 너비 고정 */
-  height: 130px;
+  flex: 0 0 228px;
+  height: 128px;
   background-color: white;
   border-radius: 4px;
-  text-align: center;
-  line-height: 130px;
-  font-weight: bold;
+  overflow: hidden;
+  position: relative;
 }
 
+.video-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 캐러셀 좌우 화살표 */
 .btn-left,
 .btn-right {
   position: absolute;
@@ -207,11 +246,31 @@ body {
 }
 
 .btn-left {
-  left: 10px;
+  left: 0px;
 }
 
 .btn-right {
-  right: 10px;
+  right: 0px;
+}
+
+.rank-carousel-wrapper .btn-left,
+.rank-carousel-wrapper .btn-right {
+  opacity: 0;
+}
+
+.rank-carousel-wrapper:hover .btn-left,
+.rank-carousel-wrapper:hover .btn-right {
+  opacity: 1;
+}
+
+.carousel-wrapper .btn-left,
+.carousel-wrapper .btn-right {
+  opacity: 0;
+}
+
+.carousel-wrapper:hover .btn-left,
+.carousel-wrapper:hover .btn-right {
+  opacity: 1;
 }
 
 /* footer */
@@ -219,10 +278,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 980px;
   color: gray;
-  margin-top: 50px;
-  margin-left: 100px;
+  margin: 80px 300px 0px 300px;
 }
 
 .footer-nav-container1 {
@@ -230,8 +287,13 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   list-style: none;
-  width: 300px;
+  width: 180px;
   margin-bottom: 20px;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .footer-nav-container1 li {
@@ -242,7 +304,7 @@ body {
 .footer-nav-container2 {
   display: flex;
   flex-wrap: wrap;
-  font-size: 14px;
+  font-size: 13px;
   list-style: none;
 }
 
@@ -251,15 +313,17 @@ body {
   padding-bottom: 16px;
 }
 
-.footer-button {
+.footer-service-code {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 40px;
+  justify-content: center;
+  font-size: 13px;
+  width: 74px;
+  height: 34px;
   color: gray;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  stroke-opacity: 2px;
+  margin: 10px 0;
+  border: 1px solid gray;
 }
 
 .footer-nav-container3 {
@@ -272,7 +336,7 @@ body {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 11px;
 }
 .footer-nav-container3 p {
   margin-top: 5px;

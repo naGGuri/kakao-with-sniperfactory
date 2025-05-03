@@ -6,6 +6,7 @@
     <title>홈 - 넷플릭스(클론)</title>
 </head>
 <body>
+    <!-- Header  -->
     <header class="header-container">
         <ul class="nav-container1">
             <img src="./sources/netfilxLogo.svg" alt="넷플릭스 로고" class="header-logo">
@@ -18,15 +19,22 @@
             <li><p>언어별로 찾아보기</p></li>
         </ul>
         <ul class="nav-container2">
-            <li><p>검색</p></li>
-            <li><p>알림</p></li>
-            <li><p>프로필</p></li>
+            <img src="./sources/search.svg" alt="검색 아이콘" class="header-icon">
+            <img src="./sources/bell.svg" alt="알림 아이콘" class="header-icon">
+            <div class="user-wrapper">
+                <img src="./sources/user.svg" alt="사용자 아이콘" class="header-icon">
+                <img src="./sources/arrow_drop_down.svg" alt="드롭다운 아이콘" class="header-icon">
+            </div>
+
         </ul>
     </header>
     <div class="main-container">
+
+        <!-- 배너 -->
         <div class="banner-image-wrapper">
             <img class="banner-image" src="./sources/banner.webp" alt="배너" />
         </div>
+        <div class="banner-gradient"></div>     
         <div class="banner-container">
             <img class="banner-logo" src="./sources/banner2.webp" alt="배너 로고" />
             <p class="banner-coment"">무도회에서 우승한 뒤, 결혼을 하고 아들도 얻은 오공은 행복한 나날을 보내고 있었다. 하지만 지구를 약탈하기 위해 속속 침략해 오는 우주인들에 맞서</br> 싸워야 할 시간이 찾아온다.</p>
@@ -35,47 +43,64 @@
                 <div class="banner-button2">상세 정보</div>
             </div>
         </div>
+
+        <!-- 랭킹 1위 ~ 10위 -->
         <div class="video-container">
             <p>오늘 대한민국의 TOP10 시리즈</p>
-            <div class="carousel-wrapper" data-carousel>
+            <div class="rank-carousel-wrapper" data-carousel>
+              <img src="./sources/arrow_left.svg" class="btn-left" />
+              <div class="video-list"></div>
+              <img src="./sources/arrow_right.svg" class="btn-right" />
+            </div>
+          </div>
+
+        <!-- 평단의 찬사를 받은 드라마 -->
+        <div class="video-container">
+            <p>평단의 찬사를 받은 드라마</p>
+            <div class="carousel-wrapper section1-carousel" data-carousel>
             <img src="./sources/arrow_left.svg" class="btn-left" />
             <div class="video-list"></div>
             <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
         </div>
         
+        <!-- 넷플릭스에 새로 올라온 콘텐츠 -->
         <div class="video-container">
-            <p>희수 님이 시청중인 콘텐츠</p>
-            <div class="carousel-wrapper" data-carousel>
+            <p>넷플릭스에 새로 올라온 콘텐츠</p>
+            <div class="carousel-wrapper section2-carousel" data-carousel>
             <img src="./sources/arrow_left.svg" class="btn-left" />
             <div class="video-list"></div>
             <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
         </div>
         
+        <!-- 몰아보기 추천 시리즈 -->
         <div class="video-container">
-            <p>섹션 제목 3</p>
-            <div class="carousel-wrapper" data-carousel>
+            <p>몰아보기 추천 시리즈</p>
+            <div class="carousel-wrapper section3-carousel" data-carousel>
             <img src="./sources/arrow_left.svg" class="btn-left" />
             <div class="video-list"></div>
             <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
         </div>
         
+        <!-- 한국 예능 -->
         <div class="video-container">
-            <p>섹션 제목 4</p>
-            <div class="carousel-wrapper" data-carousel>
+            <p>한국 예능</p>
+            <div class="carousel-wrapper section4-carousel" data-carousel>
             <img src="./sources/arrow_left.svg" class="btn-left" />
             <div class="video-list"></div>
             <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
         </div>
+  
+        <!-- Footer -->
         <footer class="footer-container">
             <div class="footer-nav-container1">
-                <p>페이스북</p>
-                <p>인스타그램</p>
-                <p>트위터</p>
-                <p>유튜브</p>
+                <img src="./sources/logos/facebook.png" alt="페이스북 아이콘" class="footer-icon">
+                <img src="./sources/logos/instagram.png" alt="인스타그램 아이콘" class="footer-icon">   
+                <img src="./sources/logos/twitter.png" alt="트위터 아이콘" class="footer-icon">
+                <img src="./sources/logos/youtube.png" alt="유튜브 아이콘" class="footer-icon">
             </div>
             <ul class="footer-nav-container2">
                 <li><p>화면 해설</p></li>
@@ -91,7 +116,7 @@
                 <li><p>회사 정보</p></li>
                 <li><p>문의하기</p></li>
             </ul>
-            <button class="footer-button">서비스 코드</button>
+            <div class="footer-service-code">서비스 코드</div>
             <div class ="footer-nav-container3">
                 <p>넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 00-308-321-0161 (수신자 부담)</p>
                 <p>대표: 레지널드 찬</p>
