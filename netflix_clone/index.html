@@ -8,17 +8,17 @@
 <body>
     <!-- Header  -->
     <header class="header-container">
-        <ul class="nav-container1">
+        <nav class="header-nav-container1">
             <img src="./sources/netfilxLogo.svg" alt="넷플릭스 로고" class="header-logo">
-            <li><p>홈</p></li>
-            <li><p>시리즈</p></li>
-            <li><p>영화</p></li>
-            <li><p>게임</p></li>
-            <li><p>NEW! 요즘 대세 콘텐츠</p></li>
-            <li><p>내가 찜한 리스트</p></li>
-            <li><p>언어별로 찾아보기</p></li>
-        </ul>
-        <ul class="nav-container2">
+            <p>홈</p>
+            <p>시리즈</p>
+            <p>영화</p>
+            <p>게임</p>
+            <p>NEW! 요즘 대세 콘텐츠</p>
+            <p>내가 찜한 리스트</p>
+            <p>언어별로 찾아보기</p>
+        </nav>
+        <nav class="header-nav-container2">
             <img src="./sources/search.svg" alt="검색 아이콘" class="header-icon">
             <img src="./sources/bell.svg" alt="알림 아이콘" class="header-icon">
             <div class="user-wrapper">
@@ -26,96 +26,97 @@
                 <img src="./sources/arrow_drop_down.svg" alt="드롭다운 아이콘" class="header-icon">
             </div>
 
-        </ul>
+        </nav>
     </header>
-    <div class="main-container">
-
+    <main class="main-container">
         <!-- 배너 -->
-        <div class="banner-image-wrapper">
+        <section class="banner-container">
             <img class="banner-image" src="./sources/banner.webp" alt="배너" />
-        </div>
-        <div class="banner-gradient"></div>     
-        <div class="banner-container">
-            <img class="banner-logo" src="./sources/banner2.webp" alt="배너 로고" />
-            <p class="banner-coment"">무도회에서 우승한 뒤, 결혼을 하고 아들도 얻은 오공은 행복한 나날을 보내고 있었다. 하지만 지구를 약탈하기 위해 속속 침략해 오는 우주인들에 맞서</br> 싸워야 할 시간이 찾아온다.</p>
-            <div class="banner-button-container">
-                <div class="banner-button1">재생</div>
-                <div class="banner-button2">상세 정보</div>
+            <div class="banner-detail">
+                <img class="banner-logo" src="./sources/banner2.webp" alt="배너 로고" />
+                <p class="banner-coment"">무도회에서 우승한 뒤, 결혼을 하고 아들도 얻은 오공은 행복한 나날을 보내고 있었다. 하지만 지구를 약탈하기 위해 속속 침략해 오는 우주인들에 맞서</br> 싸워야 할 시간이 찾아온다.</p>
+                <div class="banner-button-container">
+                    <div class="banner-button1">재생</div>
+                    <div class="banner-button2">상세 정보</div>
+                </div>
             </div>
-        </div>
-
+        </section>
         <!-- 랭킹 1위 ~ 10위 -->
-        <div class="video-container">
+        <section class="video-container">
             <p>오늘 대한민국의 TOP10 시리즈</p>
             <div class="rank-carousel-wrapper" data-carousel>
               <img src="./sources/arrow_left.svg" class="btn-left" />
-              <div class="video-list"></div>
+              <div div class="video-list"></div>
               <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
-          </div>
-
+        </section>
         <!-- 평단의 찬사를 받은 드라마 -->
-        <div class="video-container">
+        <section class="video-container">
             <p>평단의 찬사를 받은 드라마</p>
             <div class="carousel-wrapper section1-carousel" data-carousel>
-            <img src="./sources/arrow_left.svg" class="btn-left" />
-            <div class="video-list"></div>
-            <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <div class="video-list"></div>
+                <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
-        </div>
-        
+        </section>
         <!-- 넷플릭스에 새로 올라온 콘텐츠 -->
-        <div class="video-container">
+        <section class="video-container">
             <p>넷플릭스에 새로 올라온 콘텐츠</p>
             <div class="carousel-wrapper section2-carousel" data-carousel>
-            <img src="./sources/arrow_left.svg" class="btn-left" />
-            <div class="video-list"></div>
-            <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <div class="video-list"></div>
+                <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
-        </div>
-        
+        </section>
         <!-- 몰아보기 추천 시리즈 -->
-        <div class="video-container">
+        <section class="video-container">
             <p>몰아보기 추천 시리즈</p>
             <div class="carousel-wrapper section3-carousel" data-carousel>
-            <img src="./sources/arrow_left.svg" class="btn-left" />
-            <div class="video-list"></div>
-            <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <div class="video-list"></div>
+                <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
-        </div>
-        
+        </section>  
         <!-- 한국 예능 -->
-        <div class="video-container">
+        <section class="video-container">
             <p>한국 예능</p>
             <div class="carousel-wrapper section4-carousel" data-carousel>
-            <img src="./sources/arrow_left.svg" class="btn-left" />
-            <div class="video-list"></div>
-            <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <div class="video-list"></div>
+                <img src="./sources/arrow_right.svg" class="btn-right" />
             </div>
-        </div>
-  
+        </section>
         <!-- Footer -->
         <footer class="footer-container">
-            <div class="footer-nav-container1">
-                <img src="./sources/logos/facebook.png" alt="페이스북 아이콘" class="footer-icon">
-                <img src="./sources/logos/instagram.png" alt="인스타그램 아이콘" class="footer-icon">   
-                <img src="./sources/logos/twitter.png" alt="트위터 아이콘" class="footer-icon">
-                <img src="./sources/logos/youtube.png" alt="유튜브 아이콘" class="footer-icon">
-            </div>
-            <ul class="footer-nav-container2">
-                <li><p>화면 해설</p></li>
-                <li><p>고객 센터</p></li>
-                <li><p>기프트카드</p></li>
-                <li><p>미디어 센터</p></li>
-                <li><p>투자 정보(IR)</p></li>
-                <li><p>입사 정보</p></li>
-                <li><p>이용 약관</p></li>
-                <li><p>개인정보</p></li>
-                <li><p>법적 고지</p></li>
-                <li><p>쿠키 설정</p></li>
-                <li><p>회사 정보</p></li>
-                <li><p>문의하기</p></li>
-            </ul>
+            <!-- SNS 링크 -->
+            <nav class="footer-nav-container1">
+                <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
+                    <img src="./sources/logos/facebook.png" alt="페이스북 아이콘" class="footer-icon">
+                </a>
+                <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
+                    <img src="./sources/logos/instagram.png" alt="인스타그램 아이콘" class="footer-icon">   
+                </a>
+                <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
+                    <img src="./sources/logos/twitter.png" alt="트위터 아이콘" class="footer-icon">
+                </a>
+                <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
+                    <img src="./sources/logos/youtube.png" alt="유튜브 아이콘" class="footer-icon">
+                </a>
+            </nav>
+            <nav class="footer-nav-container2">
+                <p>화면 해설</p>
+                <p>고객 센터</p>
+                <p>기프트카드</p>
+                <p>미디어 센터</p>
+                <p>투자 정보(IR)</p>
+                <p>입사 정보</p>
+                <p>이용 약관</p>
+                <p>개인정보</p>
+                <p>법적 고지</p>
+                <p>쿠키 설정</p>
+                <p>회사 정보</p>
+                <p>문의하기</p>
+            </nav>
             <div class="footer-service-code">서비스 코드</div>
             <div class ="footer-nav-container3">
                 <p>넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 00-308-321-0161 (수신자 부담)</p>
@@ -126,7 +127,7 @@
                 <p>클라우드 호스팅: Amazon Web Services Inc.</p>
             </div>
         </footer>
-    </div>
+    </main>
     <script src="./carousel.js"></script>
     <script src="./scroll.js"></script>
 </body>
