@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         list.style.transition = "none";
         list.style.transform = "translateX(0)";
-      }, 500);
+      }, 100);
     }
 
     btnLeft.addEventListener("click", () => slide("left"));
