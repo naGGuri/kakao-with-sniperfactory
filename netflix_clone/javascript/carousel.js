@@ -57,62 +57,60 @@ document.addEventListener("DOMContentLoaded", () => {
           img.alt = `Video ${i + 1}`;
           item.appendChild(img);
 
-          // 💳 카드 프리뷰 컴포넌트 동적 생성
-          // item.addEventListener("mouseenter", () => {
-          //   if (item.querySelector(".card-popup")) return; // 이미 카드가 있으면 추가 생성하지 않음
+          // hover시, 💳 카드 프리뷰
+          item.addEventListener("mouseenter", () => {
+            const content = document.createElement("div");
+            content.className = "card-content";
 
-          //   const card = document.createElement("div");
-          //   card.className = "card-popup";
+            // 아이콘 wrapper
+            const iconRow = document.createElement("div");
+            iconRow.className = "icon-row";
 
-          //   const previewImage = document.createElement("img");
-          //   previewImage.className = "card-preview-image";
-          //   previewImage.src = src;
+            const leftIcons = document.createElement("div");
+            leftIcons.className = "left-icons";
 
-          //   const iconContainer = document.createElement("div");
-          //   iconContainer.className = "card-icon-container";
+            const rightIcons = document.createElement("div");
+            rightIcons.className = "right-icons";
 
-          //   const icons = [
-          //     { src: "/sources/user.svg", alt: "Play Icon" },
-          //     { src: "/sources/user.svg", alt: "Plus Icon" },
-          //     { src: "/sources/user.svg", alt: "Delete Icon" },
-          //     { src: "/sources/user.svg", alt: "Like Icon" },
-          //     { src: "/sources/user.svg", alt: "Down Icon" },
-          //   ];
+            // 왼쪽 3개
+            [
+              { src: "/sources/play.png", alt: "재생" },
+              { src: "/sources/add.png", alt: "찜" },
+              { src: "/sources/like.png", alt: "좋아요" },
+            ].forEach(({ src, alt }) => {
+              const icon = document.createElement("img");
+              icon.className = "card-icon";
+              icon.src = src;
+              icon.alt = alt;
+              leftIcons.appendChild(icon);
+            });
 
-          //   icons.forEach(({ src, alt }) => {
-          //     const icon = document.createElement("img");
-          //     icon.className = "card-icon";
-          //     icon.src = src;
-          //     icon.alt = alt;
-          //     iconContainer.appendChild(icon);
-          //   });
+            // 오른쪽 1개
+            const downIcon = document.createElement("img");
+            downIcon.className = "card-icon";
+            downIcon.src = "/sources/arrow_down_circle.png"; // 다운 아이콘
+            downIcon.alt = "더보기";
+            rightIcons.appendChild(downIcon);
 
-          //   const infoContainer = document.createElement("div");
-          //   infoContainer.className = "card-info-container";
+            // 조립
+            iconRow.appendChild(leftIcons);
+            iconRow.appendChild(rightIcons);
 
-          //   const infoMark = document.createElement("img");
-          //   infoMark.className = "card-info-mark";
-          //   infoMark.src = "/sources/user.svg";
-          //   infoMark.alt = "Info Mark Icon";
+            // 설명
+            const desc = document.createElement("p");
+            desc.className = "card-desc";
+            desc.textContent = "카드 설명 영역입니다.";
 
-          //   const desc = document.createElement("p");
-          //   desc.className = "card-desc";
-          //   desc.textContent = "마음이 편해지는 · 기분 좋아지는";
+            content.appendChild(iconRow);
+            content.appendChild(desc);
+            item.appendChild(content);
+          });
 
-          //   item.appendChild(card);
-
-          //   card.appendChild(previewImage);
-          //   card.appendChild(iconContainer);
-          //   card.appendChild(infoContainer);
-          //   card.appendChild(desc);
-          //   infoContainer.appendChild(infoMark);
-          // });
-
-          // // hover 벗어나면 제거
-          // item.addEventListener("mouseleave", () => {
-          //   const card = item.querySelector(".card-popup");
-          //   if (card) card.remove();
-          // });
+          // hover 벗어나면 제거
+          item.addEventListener("mouseleave", () => {
+            const content = item.querySelector(".card-content");
+            if (content) content.remove();
+          });
         }
 
         list.appendChild(item);
