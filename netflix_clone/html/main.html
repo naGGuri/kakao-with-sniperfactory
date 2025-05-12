@@ -2,14 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <title>홈 - 넷플릭스(클론)</title>
 </head>
 <body>
     <!-- Header  -->
     <header class="header-container">
+        <!-- 헤더 왼쪽 컨테이너 -->
         <nav class="header-nav-container1">
-            <img src="./sources/netfilxLogo.svg" alt="넷플릭스 로고" class="header-logo">
+            <a href="http://127.0.0.1:5500/html/main.html" target="" rel="noopener noreferrer"> 
+                <img src="/sources/netfilxLogo.svg" alt="넷플릭스 로고" class="header-logo">
+            </a>
             <p>홈</p>
             <p>시리즈</p>
             <p>영화</p>
@@ -18,12 +21,19 @@
             <p>내가 찜한 리스트</p>
             <p>언어별로 찾아보기</p>
         </nav>
+        <!-- 헤더 오른쪽 컨테이너 -->
         <nav class="header-nav-container2">
-            <img src="./sources/search.svg" alt="검색 아이콘" class="header-icon">
-            <img src="./sources/bell.svg" alt="알림 아이콘" class="header-icon">
+            <div class="search-toggle">
+                <img src="/sources/search.svg" alt="검색 아이콘" class="header-icon search-trigger" />
+                <div class="search-box hidden ">
+                    <img src="/sources/search.svg" class="header-icon" alt="검색 아이콘" />
+                    <input type="text" placeholder="제목, 장르 등을 검색하세요" class="search-input" />
+                </div>
+            </div>
+            <img src="/sources/bell.svg" alt="알림 아이콘" class="header-icon">
             <div class="user-wrapper">
-                <img src="./sources/user.svg" alt="사용자 아이콘" class="header-icon">
-                <img src="./sources/arrow_drop_down.svg" alt="드롭다운 아이콘" class="header-icon">
+                <img src="/sources/user.svg" alt="사용자 아이콘" class="header-icon">
+                <img src="/sources/arrow_drop_down.svg" alt="드롭다운 아이콘" class="header-icon">
             </div>
 
         </nav>
@@ -31,9 +41,9 @@
     <main class="main-container">
         <!-- 배너 -->
         <section class="banner-container">
-            <img class="banner-image" src="./sources/banner.webp" alt="배너" />
+            <img class="banner-image" src="/sources/banner.webp" alt="배너" />
             <div class="banner-detail">
-                <img class="banner-logo" src="./sources/banner2.webp" alt="배너 로고" />
+                <img class="banner-logo" src="/sources/banner2.webp" alt="배너 로고" />
                 <p class="banner-coment"">무도회에서 우승한 뒤, 결혼을 하고 아들도 얻은 오공은 행복한 나날을 보내고 있었다. 하지만 지구를 약탈하기 위해 속속 침략해 오는 우주인들에 맞서</br> 싸워야 할 시간이 찾아온다.</p>
                 <div class="banner-button-container">
                     <div class="banner-button1">재생</div>
@@ -45,45 +55,45 @@
         <section class="video-container">
             <p>오늘 대한민국의 TOP10 시리즈</p>
             <div class="rank-carousel-wrapper" data-carousel data-carousel-type="rank">
-              <img src="./sources/arrow_left.svg" class="btn-left" />
+              <img src="/sources/arrow_left.svg" class="btn-left" />
               <div div class="video-list"></div>
-              <img src="./sources/arrow_right.svg" class="btn-right" />
+              <img src="/sources/arrow_right.svg" class="btn-right" />
             </div>
         </section>
         <!-- 평단의 찬사를 받은 드라마 -->
         <section class="video-container">
             <p>평단의 찬사를 받은 드라마</p>
             <div class="carousel-wrapper" data-carousel data-carousel-type="section1">
-                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <img src="/sources/arrow_left.svg" class="btn-left" />
                 <div class="video-list"></div>
-                <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="/sources/arrow_right.svg" class="btn-right" />
             </div>
         </section>
         <!-- 넷플릭스에 새로 올라온 콘텐츠 -->
         <section class="video-container">
             <p>넷플릭스에 새로 올라온 콘텐츠</p>
             <div class="carousel-wrapper" data-carousel data-carousel-type="section2">
-                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <img src="/sources/arrow_left.svg" class="btn-left" />
                 <div class="video-list"></div>
-                <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="/sources/arrow_right.svg" class="btn-right" />
             </div>
         </section>
         <!-- 몰아보기 추천 시리즈 -->
         <section class="video-container">
             <p>몰아보기 추천 시리즈</p>
             <div class="carousel-wrapper" data-carousel data-carousel-type="section3">
-                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <img src="/sources/arrow_left.svg" class="btn-left" />
                 <div class="video-list"></div>
-                <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="/sources/arrow_right.svg" class="btn-right" />
             </div>
         </section>  
         <!-- 한국 예능 -->
         <section class="video-container">
             <p>한국 예능</p>
             <div class="carousel-wrapper" data-carousel data-carousel-type="section4">
-                <img src="./sources/arrow_left.svg" class="btn-left" />
+                <img src="/sources/arrow_left.svg" class="btn-left" />
                 <div class="video-list"></div>
-                <img src="./sources/arrow_right.svg" class="btn-right" />
+                <img src="/sources/arrow_right.svg" class="btn-right" />
             </div>
         </section>
         <!-- Footer -->
@@ -91,16 +101,16 @@
             <!-- SNS 링크 -->
             <nav class="footer-nav-container1">
                 <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
-                    <img src="./sources/logos/facebook.png" alt="페이스북 아이콘" class="footer-icon">
+                    <img src="/sources/logos/facebook.png" alt="페이스북 아이콘" class="footer-icon">
                 </a>
                 <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
-                    <img src="./sources/logos/instagram.png" alt="인스타그램 아이콘" class="footer-icon">   
+                    <img src="/sources/logos/instagram.png" alt="인스타그램 아이콘" class="footer-icon">   
                 </a>
                 <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
-                    <img src="./sources/logos/twitter.png" alt="트위터 아이콘" class="footer-icon">
+                    <img src="/sources/logos/twitter.png" alt="트위터 아이콘" class="footer-icon">
                 </a>
                 <a href="https://www.facebook.com/NetflixKR" target="_blank" rel="noopener noreferrer">
-                    <img src="./sources/logos/youtube.png" alt="유튜브 아이콘" class="footer-icon">
+                    <img src="/sources/logos/youtube.png" alt="유튜브 아이콘" class="footer-icon">
                 </a>
             </nav>
             <nav class="footer-nav-container2">
@@ -128,7 +138,8 @@
             </div>
         </footer>
     </main>
-    <script src="./carousel.js"></script>
-    <script src="./scroll.js"></script>
+    <script src="/javascript/carousel.js"></script>
+    <script src="/javascript/scroll.js"></script>
+    <script src="/javascript/search.js"></script>
 </body>
 </html>
