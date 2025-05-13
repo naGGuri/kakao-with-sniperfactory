@@ -1,0 +1,14 @@
+.video-list-container {
+  display: flex;
+  gap: 8px;
+  overflow: visible;
+  padding: 32px;
+}
+
+.video-list-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+  margin-top: 24px;
+  padding-left: 32px;
+}
