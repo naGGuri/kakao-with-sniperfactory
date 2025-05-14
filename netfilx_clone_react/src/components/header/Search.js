@@ -1,6 +1,6 @@
-import useSearchToggle from "../Hooks/useSearchToggle";
+import useSearchToggle from "../../hooks/useSearchToggle";
 
-export default function HeaderSearch() {
+export default function Search() {
   const { visible, setVisible, searchBoxRef, triggerRef, inputRef } =
     useSearchToggle();
 

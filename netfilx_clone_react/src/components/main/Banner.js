@@ -1,11 +1,15 @@
-export default function MainBanner() {
+export default function Banner() {
   return (
     <section className="banner-container">
-      <img className="banner-image" src="/sources/banner.webp" alt="배너" />
+      <img
+        className="banner-image"
+        src="/sources/main/banner.webp"
+        alt="배너"
+      />
       <div className="banner-detail">
         <img
           className="banner-logo"
-          src="/sources/banner2.webp"
+          src="/sources/main/banner2.webp"
           alt="배너 로고"
         />
         <p className="banner-coment">

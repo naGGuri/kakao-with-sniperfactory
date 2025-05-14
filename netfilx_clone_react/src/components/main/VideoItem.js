@@ -1,6 +1,6 @@
-import "../Styles/MainVideoItem.css";
+import "../../styles/MainVideoItem.css";
 
-export default function MainVideoItem({ src, fadeOut }) {
+export default function VideoItem({ src, fadeOut }) {
   return (
     <>
       <div className="video-container fade-out">
@@ -16,17 +16,17 @@ export default function MainVideoItem({ src, fadeOut }) {
               <div className="video-left-icons">
                 <img
                   className="video-icon"
-                  src="/sources/video/play.png"
+                  src="/sources/main/video/play.png"
                   alt="재생 아이콘"
                 />
                 <img
                   className="video-icon"
-                  src="/sources/video/add.png"
+                  src="/sources/main/video/add.png"
                   alt="찜 아이콘"
                 />
                 <img
                   className="video-icon"
-                  src="/sources/video/like.png"
+                  src="/sources/main/video/like.png"
                   alt="좋아요 아이콘"
                 />
               </div>
@@ -34,7 +34,7 @@ export default function MainVideoItem({ src, fadeOut }) {
               <div className="video-right-icons">
                 <img
                   className="video-icon"
-                  src="/sources/video/arrow_down_circle.png"
+                  src="/sources/main/video/arrow_down_circle.png"
                   alt="회차정보"
                 />
               </div>

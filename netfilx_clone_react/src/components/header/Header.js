@@ -1,7 +1,7 @@
 import { useState } from "react";
-import useScrollHeader from "../Hooks/useScrollHeader";
-import HeaderSearch from "./HeaderSearch";
-import HeaderAlert from "./HeaderAlert";
+import useScrollHeader from "../../hooks/useScrollHeader";
+import Search from "./Search";
+import Alert from "./Alert";
 
 export default function Header() {
   const isTop = useScrollHeader(); // 스크롤 위치에 따라 헤더의 배경색을 변경하기 위한 커스텀 훅
@@ -18,7 +18,7 @@ export default function Header() {
         <nav className="header-nav-container1">
           <a href="" target="_self" rel="noopener noreferrer">
             <img
-              src="/sources/netfilxLogo.svg"
+              src="/sources/header/netfilxLogo.svg"
               alt="넷플릭스 로고"
               className="header-logo"
             />
@@ -34,14 +34,14 @@ export default function Header() {
 
         {/* 헤더 오른쪽 컨테이너 */}
         <nav className="header-nav-container2">
-          <HeaderSearch />
+          <Search />
           <img
             src="/sources/header/bell.svg"
             alt="알림 아이콘"
             className="header-icon"
             onClick={handleAlertClick} // 알림 아이콘 클릭 시 알림 박스 표시
           />
-          {showAlertBox && <HeaderAlert />}
+          {showAlertBox && <Alert />}
           <div className="user-wrapper">
             <img
               src="/sources/header/user.svg"

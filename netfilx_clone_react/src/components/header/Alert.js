@@ -1,4 +1,4 @@
-import "../Styles/HeaderAlertBox.css";
+import "../../styles/HeaderAlertBox.css";
 
 const alertList = [
   {

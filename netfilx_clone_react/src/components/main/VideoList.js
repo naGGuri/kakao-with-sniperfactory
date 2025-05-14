@@ -1,11 +1,11 @@
 import { useState, useRef } from "react";
-import MainVideoItem from "./MainVideoItem";
-import "../Styles/MainVideoList.css";
+import VideoItem from "./VideoItem";
+import "../../styles/MainVideoList.css";
 
 const VISIBLE_COUNT = 6; // 한 번에 보여줄 아이템 수
 const ITEM_WIDTH = 228 + 8; // 각 아이템의 가로 너비 + gap(간격)
 
-export default function MainVideoList({ sectionName }) {
+export default function VideoList({ sectionName }) {
   // 캐러셀 슬라이드 시작 위치 인덱스 (0~9)
   const [startIndex, setStartIndex] = useState(0);
 
@@ -22,7 +22,7 @@ export default function MainVideoList({ sectionName }) {
 
   // 섹션 이름별 이미지 목록 생성
   const videoImages = Array.from({ length: totalItems }, (_, i) => ({
-    src: `sources/${sectionName}/${i + 1}.jpg`,
+    src: `sources/main/${sectionName}/${i + 1}.jpg`,
   }));
 
   const videoListTitles = {
@@ -123,7 +123,7 @@ export default function MainVideoList({ sectionName }) {
             transform: "translate(-20%, -40%)", // 정중앙 기준 위치 보정
           }}
         >
-          <MainVideoItem src={videoImages[hoveredIndex].src} />
+          <VideoItem src={videoImages[hoveredIndex].src} />
         </div>
       )}
     </div>
