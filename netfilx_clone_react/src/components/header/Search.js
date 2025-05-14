@@ -1,3 +1,4 @@
+import React from "react";
 import useSearchToggle from "../../hooks/useSearchToggle";
 
 export default function Search() {

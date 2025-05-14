@@ -35,9 +35,11 @@ export default function useSearchToggle() {
   }, [visible]);
 
   // 검색창이 열릴 때 input에 포커스
-  useEffect(() => {
-    if (visible) inputRef.current?.focus();
-  }, [visible]);
+  // useEffect(() => {
+  //   if (visible) {
+  //     inputRef.current?.focus();
+  //   }
+  // }, [visible]);
 
   return {
     visible,

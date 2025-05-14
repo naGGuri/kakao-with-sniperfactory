@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useScrollHeader from "../../hooks/useScrollHeader";
 import Search from "./Search";
 import Alert from "./Alert";
@@ -16,7 +16,11 @@ export default function Header() {
       <header className={`header-container ${isTop ? "transparent" : ""}`}>
         {/* 헤더 왼쪽 컨테이너 */}
         <nav className="header-nav-container1">
-          <a href="" target="_self" rel="noopener noreferrer">
+          <a
+            href="http://localhost:3000/"
+            target="_self"
+            rel="noopener noreferrer"
+          >
             <img
               src="/sources/header/netfilxLogo.svg"
               alt="넷플릭스 로고"
