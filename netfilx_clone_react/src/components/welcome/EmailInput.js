@@ -8,7 +8,9 @@ const Container = styled.div`
   justify-content: center;
   gap: 12px;
 
+  width: 100%;
   height: 80px;
+  padding: 0 20px;
   margin: 40px 0px;
 `;
 
@@ -19,6 +21,7 @@ const Title = styled.p`
 `;
 
 const InputRow = styled.div`
+  width: 100%;
   display: flex;
   gap: 12px;
 `;
@@ -26,7 +29,7 @@ const InputRow = styled.div`
 const StyledInput = styled.input`
   all: unset;
 
-  width: 600px;
+  width: 100%;
   height: 100%;
   padding: 0 12px;
 
