@@ -8,7 +8,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 12px;
 
-  width: 100%;
+  width: 70%;
   height: 80px;
   padding: 0 20px;
   margin: 40px 0px;
@@ -68,17 +68,15 @@ const StartButton = styled.div`
 
 export default function EmailInput() {
   return (
-    <>
-      <Container>
-        <Title>
-          시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를
-          입력하세요.
-        </Title>
-        <InputRow>
-          <StyledInput type="email" placeholder="이메일 주소를 입력하세요." />
-          <StartButton>시작하기</StartButton>
-        </InputRow>
-      </Container>
-    </>
+    <Container>
+      <Title>
+        시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를
+        입력하세요.
+      </Title>
+      <InputRow>
+        <StyledInput type="email" placeholder="이메일 주소를 입력하세요." />
+        <StartButton>시작하기</StartButton>
+      </InputRow>
+    </Container>
   );
 }

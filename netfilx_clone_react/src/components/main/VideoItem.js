@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/MainVideoItem.css";
 
-export default function VideoItem({ src, fadeOut }) {
+export default function VideoItem({ src }) {
   return (
     <>
       <div className="video-container fade-out">

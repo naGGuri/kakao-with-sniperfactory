@@ -8,12 +8,12 @@ const HeaderContainer = styled.header`
   align-items: center;
 
   position: absolute;
-  top: 0%;
+  top: 0;
   left: 0;
 
   background-color: transparent;
 
-  padding: 10px 80px 0px 80px;
+  padding: 10px 100px 0px 100px;
   height: 70px;
   width: 100%;
 

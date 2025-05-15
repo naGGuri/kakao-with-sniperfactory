@@ -9,7 +9,7 @@ const Container = styled.main`
   justify-content: center;
 
   width: 100%;
-  height: 100vh;
+  height: 900px;
 
   &::before {
     content: "";
@@ -17,7 +17,7 @@ const Container = styled.main`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 900px;
     background-image: url("/sources/welcome/banner.jpg");
     background-size: cover;
     background-position: center;
@@ -59,7 +59,7 @@ const TextContainer = styled.p`
 `;
 
 const Text1 = styled.p`
-  font-size: 40px;
+  font-size: 60px;
   font-weight: bold;
   margin-bottom: 16px;
 `;
@@ -135,7 +135,10 @@ export default function Banner() {
         <Wrapper>
           <Section1>
             <TextContainer>
-              <Text1>영화, 시리즈 등을 무제한으로</Text1>
+              <Text1>
+                영화, 시리즈 등을 <br />
+                무제한으로
+              </Text1>
               <Text2>
                 7,000원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.
               </Text2>
