@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../reducers/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 // 배경 이미지를 포함한 메인 컨테이너
 const BackgroundContainer = styled.main`
@@ -157,6 +160,19 @@ export default function LoginForm({ onLogin }) {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
+    // 로그인 reducer 상태
+    const dispatch = useDispatch();
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+    // 페이지 리다이렉션 변수 선언
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate('/main');
+        }
+    }, [isLoggedIn, navigate]);
+
     // 이메일 유효성 검사 (디바운싱)
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -187,6 +203,10 @@ export default function LoginForm({ onLogin }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // 테스트를 윈한 임시 게정
+        const TEMP_EMAIL = 'test@example.com';
+        const TEMP_PASSWORD = '123456';
+
         // 빈 입력 검사
         if (!email || !password) {
             setEmailError(email ? '' : '이메일을 입력하세요.');
@@ -197,8 +217,15 @@ export default function LoginForm({ onLogin }) {
         // 유효성 에러 존재 시 중단
         if (emailError || passwordError) return;
 
+        // 이메일 또는 비밀번호 불일치 하면
+        if (email !== TEMP_EMAIL || password !== TEMP_PASSWORD) {
+            setEmailError(' ');
+            setPasswordError('이메일 또는 비밀번호가 올바르지 않습니다.');
+            return;
+        }
+
         // 로그인 요청 콜백 실행
-        onLogin({ email, rememberMe });
+        dispatch(login({ email }));
     };
 
     return (
@@ -240,7 +267,7 @@ export default function LoginForm({ onLogin }) {
                 </StyledButton>
 
                 {/* 비밀번호 찾기 링크 */}
-                <a href="#" style={{ color: 'white' }}>
+                <a href="http://localhost:3000/login" style={{ color: 'white' }}>
                     비밀번호를 잊으셨나요?
                 </a>
 
@@ -258,7 +285,7 @@ export default function LoginForm({ onLogin }) {
                     <p style={{ color: 'gray' }}>
                         이 페이지는 Google reCAPTCHA의 보호를 받아 사용자가 로봇이 아님을 확인합니다.
                     </p>
-                    <a href="#" style={{ color: '#00bcd4' }}>
+                    <a href="http://localhost:3000/login" style={{ color: '#00bcd4' }}>
                         자세히 알아보기
                     </a>
                 </InfoSection>
