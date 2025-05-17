@@ -1,7 +1,7 @@
 // src/components/layout/Search.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import useSearchToggle from '../../hooks/useSearchToggle';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const scaleUpHorRight = keyframes`
   0% {
@@ -51,7 +51,7 @@ const SearchInput = styled.input`
 `;
 
 export default function Search() {
-    const { visible, setVisible, searchBoxRef, triggerRef, inputRef } = useSearchToggle();
+    const { visible, setVisible, searchBoxRef, triggerRef, inputRef } = useClickOutside();
 
     return (
         <SearchToggle>

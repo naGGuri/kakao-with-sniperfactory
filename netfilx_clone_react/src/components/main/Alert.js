@@ -1,6 +1,7 @@
 // src/components/layout/HeaderAlert.js
 import React from 'react';
 import styled from 'styled-components';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const alertList = [
     {
@@ -40,6 +41,12 @@ const alertList = [
     },
 ];
 
+const AlertIcon = styled.img`
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+`;
+
 // 스타일드 컴포넌트 정의 (원래 CSS 스타일에 최대한 맞춤)
 const Container = styled.div`
     position: absolute;
@@ -49,7 +56,6 @@ const Container = styled.div`
     max-height: 600px;
     background-color: rgb(20, 20, 20);
     border: 1px solid #333;
-    border-radius: 8px;
     overflow-y: auto;
     z-index: 100;
 `;
@@ -102,21 +108,34 @@ const Divider = styled.div`
 
 // HeaderAlert 컴포넌트
 export default function HeaderAlert() {
+    const { visible, setVisible, childrenBoxRef, triggerRef } = useClickOutside();
+
     return (
-        <Container>
-            {alertList.map((alert) => (
-                <AlertWrapper key={alert.id}>
-                    <AlertItem>
-                        <AlertImage src={alert.src} alt="알림 이미지" />
-                        <AlertText>
-                            <h1>{alert.title}</h1>
-                            <h1>{alert.content}</h1>
-                            <p>{alert.date}</p>
-                        </AlertText>
-                    </AlertItem>
-                    <Divider />
-                </AlertWrapper>
-            ))}
-        </Container>
+        <div style={{ position: 'relative' }}>
+            <AlertIcon
+                ref={triggerRef}
+                src="/sources/header/bell.svg"
+                alt="알림 아이콘"
+                onClick={() => setVisible((prev) => !prev)}
+            />
+
+            {visible && (
+                <Container ref={childrenBoxRef}>
+                    {alertList.map((alert) => (
+                        <AlertWrapper key={alert.id}>
+                            <AlertItem>
+                                <AlertImage src={alert.src} alt="알림 이미지" />
+                                <AlertText>
+                                    <h1>{alert.title}</h1>
+                                    <h1>{alert.content}</h1>
+                                    <p>{alert.date}</p>
+                                </AlertText>
+                            </AlertItem>
+                            <Divider />
+                        </AlertWrapper>
+                    ))}
+                </Container>
+            )}
+        </div>
     );
 }

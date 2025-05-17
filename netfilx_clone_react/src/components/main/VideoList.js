@@ -1,131 +1,147 @@
-import React, { useState, useRef } from 'react';
+// src/components/main/VideoList.js
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import VideoItem from './VideoItem';
-import '../../styles/MainVideoList.css';
 
-const VISIBLE_COUNT = 6; // 한 번에 보여줄 아이템 수
-const ITEM_WIDTH = 228 + 8; // 각 아이템의 가로 너비 + gap(간격)
+// 한 번에 보여줄 항목 수 및 항목 가로폭 정의
+const VISIBLE_COUNT = 6;
+const ITEM_WIDTH = 236; // 썸네일 너비(228) + 마진(8)
+const TOTAL_ITEMS = 12; // 원본 항목 수
 
+// 리스트 전체 컨테이너
+const Container = styled.div`
+    margin: 40px 0px 20px 0px;
+`;
+
+// 섹션 제목 텍스트
+const SectionTitle = styled.p`
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 16px;
+`;
+
+// 캐러셀 컨테이너
+const CarouselContainer = styled.div`
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+`;
+
+// 캐러셀 트랙: translateX로 이동 제어
+const CarouselTrack = styled.div`
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+`;
+
+// 비디오 항목 컨테이너
+const VideoItemBox = styled.div`
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 228px;
+    margin-right: 8px;
+    transition: transform 0.3s ease, z-index 0.3s;
+
+    &.hovered {
+        transform: scale(1.4);
+        z-index: 100;
+    }
+`;
+
+// 좌우 이동 버튼
+const NavButton = styled.button`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 8px;
+
+    &.left {
+        left: 10px;
+    }
+    &.right {
+        right: 10px;
+    }
+`;
+
+// VideoList 캐러셀 컴포넌트
 export default function VideoList({ sectionName }) {
-    // 캐러셀 슬라이드 시작 위치 인덱스 (0~9)
-    const [startIndex, setStartIndex] = useState(0);
+    const [startIndex, setStartIndex] = useState(0); // 캐러셀 시작 인덱스
+    const [isHovered, setIsHovered] = useState(false); // 캐러셀 hover 여부
+    const [hoveredIndex, setHoveredIndex] = useState(null); // 현재 hover된 항목 인덱스
 
-    // 각 캐러셀의 hover 상태 (true일 때만 버튼 표시)
-    const [isHovered, setIsHovered] = useState(false);
-
-    // Hover된 이미지 인덱스 및 좌표 (고정된 위치에 카드 표시)
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [hoverPosition, setHoverPosition] = useState({ top: 0, left: 0 });
-
-    const itemRefs = useRef([]); // 이미지 DOM 참조 저장용
-
-    const totalItems = 12;
-
-    // 섹션 이름별 이미지 목록 생성
-    const videoImages = Array.from({ length: totalItems }, (_, i) => ({
+    // 섹션별 이미지 리스트 생성
+    const videoImages = Array.from({ length: TOTAL_ITEMS }, (_, i) => ({
         src: `sources/main/${sectionName}/${i + 1}.jpg`,
     }));
 
-    const videoListTitles = {
+    // 섹션 이름별 타이틀 정의
+    const titles = {
         section1: '평단의 찬사를 받은 드라마',
         section2: '넷플릭스에 새로 올라온 콘텐츠',
         section3: '몰아보기 추천 시리즈',
         section4: '한국 예능',
     };
 
-    // ▶ 오른쪽으로 6칸 이동 (무한 루프)
+    // ▶ 오른쪽 이동
     const handleNext = () => {
-        setStartIndex((prev) => (prev + VISIBLE_COUNT) % totalItems);
+        setStartIndex((prev) => (prev + VISIBLE_COUNT) % TOTAL_ITEMS);
     };
 
-    // ◀ 왼쪽으로 6칸 이동 (무한 루프)
+    // ◀ 왼쪽 이동
     const handlePrev = () => {
-        setStartIndex((prev) => (prev - VISIBLE_COUNT + totalItems) % totalItems);
+        setStartIndex((prev) => (prev - VISIBLE_COUNT + TOTAL_ITEMS) % TOTAL_ITEMS);
     };
 
-    // hover된 이미지 위에 고정 카드 위치 설정
-    const handleMouseEnter = (index) => {
-        setTimeout(() => {
-            const rect = itemRefs.current[index]?.getBoundingClientRect();
-            if (rect) {
-                setHoverPosition({ top: rect.top, left: rect.left });
-                setHoveredIndex(index);
-            }
-        }, [300]);
-    };
-
-    // hover 해제 시 카드 제거
-    const handleMouseLeave = () => {
-        setHoveredIndex(null);
-    };
-
-    // 실제 transform 이동 거리 계산
+    // 현재 캐러셀 트랙의 X 이동 거리 계산
     const trackTranslateX = startIndex * ITEM_WIDTH;
 
-    // 실제 렌더링은 모든 이미지 + 복제본 (슬라이드 트릭용)
+    // 무한 캐러셀을 위한 아이템 복제
     const extendedItems = videoImages.concat(videoImages);
 
     return (
-        <div className="video-list-wrapper">
+        <Container>
             {/* 섹션 제목 */}
-            <p className="video-list-title">{videoListTitles[sectionName]}</p>
+            <SectionTitle>{titles[sectionName]}</SectionTitle>
 
-            {/* 캐러셀 전체 영역 (hover 시 버튼 보여짐) */}
-            <div
-                className="carousel-container"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                {/* 뷰포트 */}
-                <div className="carousel-window">
-                    {/* 트랙 (전체 아이템을 translateX로 이동시킴) */}
-                    <div
-                        className="carousel-track"
-                        style={{
-                            transform: `translateX(-${trackTranslateX}px)`,
-                        }}
-                    >
-                        {extendedItems.map((item, i) => (
-                            <div
-                                className="video-item"
-                                key={i}
-                                ref={(el) => (itemRefs.current[i] = el)}
-                                onMouseEnter={() => handleMouseEnter(i % totalItems)}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <img className="video-image" src={item.src} alt="" />
-                            </div>
-                        ))}
-                    </div>
+            {/* 캐러셀 컨테이너 */}
+            <CarouselContainer onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+                <CarouselTrack style={{ transform: `translateX(-${trackTranslateX}px)` }}>
+                    {/* 확장된 썸네일 렌더링 */}
+                    {extendedItems.map((item, i) => (
+                        <VideoItemBox
+                            key={i}
+                            className={hoveredIndex === i ? 'hovered' : ''}
+                            onMouseEnter={() => setHoveredIndex(i)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            <VideoItem src={item.src} expanded={hoveredIndex === i} />
+                        </VideoItemBox>
+                    ))}
+                </CarouselTrack>
 
-                    {/* 좌우 버튼은 캐러셀 hover 상태일 때만 표시 */}
-                    {isHovered && (
-                        <>
-                            <button className="carousel-button left" onClick={handlePrev}>
-                                ◀
-                            </button>
-                            <button className="carousel-button right" onClick={handleNext}>
-                                ▶
-                            </button>
-                        </>
-                    )}
-                </div>
-            </div>
-
-            {/* Hover된 이미지 위에 표시되는 팝업 카드 */}
-            {hoveredIndex !== null && (
-                <div
-                    className="floating-video-item"
-                    style={{
-                        position: 'fixed',
-                        top: hoverPosition.top,
-                        left: hoverPosition.left,
-                        zIndex: 9999,
-                        transform: 'translate(-20%, -40%)', // 정중앙 기준 위치 보정
-                    }}
-                >
-                    <VideoItem src={videoImages[hoveredIndex].src} />
-                </div>
-            )}
-        </div>
+                {/* 좌우 이동 버튼 */}
+                {isHovered && (
+                    <>
+                        <NavButton className="left" onClick={handlePrev}>
+                            ◀
+                        </NavButton>
+                        <NavButton className="right" onClick={handleNext}>
+                            ▶
+                        </NavButton>
+                    </>
+                )}
+            </CarouselContainer>
+        </Container>
     );
 }

@@ -4,6 +4,18 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../reducers/authSlice';
+import useClickOutside from '../../hooks/useClickOutside';
+
+const ProfileWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+`;
+const Icon = styled.img`
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+`;
 
 const Container = styled.div`
     position: absolute;
@@ -37,6 +49,8 @@ const MenuItem = styled.button`
 `;
 
 export default function Profile() {
+    const { visible, setVisible, childrenBoxRef, triggerRef } = useClickOutside();
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -46,14 +60,23 @@ export default function Profile() {
     };
 
     return (
-        <Container>
-            <Wrapper>
-                <MenuItem>프로필 관리</MenuItem>
-                <MenuItem>프로필 이전</MenuItem>
-                <MenuItem>계정</MenuItem>
-                <MenuItem>고객 센터</MenuItem>
-                <MenuItem onClick={handleLogout}>넷플릭스에서 로그아웃</MenuItem>
-            </Wrapper>
-        </Container>
+        <div style={{ position: 'relative' }}>
+            <ProfileWrapper ref={triggerRef} onClick={() => setVisible((prev) => !prev)}>
+                <Icon src="/sources/header/user.svg" alt="사용자 아이콘" />
+                <Icon src="/sources/header/arrow_drop_down.svg" alt="드롭다운 아이콘" />
+            </ProfileWrapper>
+
+            {visible && (
+                <Container ref={childrenBoxRef}>
+                    <Wrapper>
+                        <MenuItem>프로필 관리</MenuItem>
+                        <MenuItem>프로필 이전</MenuItem>
+                        <MenuItem>계정</MenuItem>
+                        <MenuItem>고객 센터</MenuItem>
+                        <MenuItem onClick={handleLogout}>넷플릭스에서 로그아웃</MenuItem>
+                    </Wrapper>
+                </Container>
+            )}
+        </div>
     );
 }
