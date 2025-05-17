@@ -151,11 +151,6 @@ const CheckboxWrapper = styled.label`
 
 // 로그인 폼 컴포넌트 정의
 export default function LoginForm({ onLogin }) {
-    // 입력값 상태
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false);
-
     // 유효성 에러 상태
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -163,6 +158,14 @@ export default function LoginForm({ onLogin }) {
     // 로그인 reducer 상태
     const dispatch = useDispatch();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+    // 전역 상태에 저장된 이메일 (setEmail으로 저장된 것)
+    const savedEmail = useSelector((state) => state.auth.user?.email || '');
+
+    // 입력값 상태
+    const [email, setEmail] = useState(savedEmail);
+    const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
     // 페이지 리다이렉션 변수 선언
     const navigate = useNavigate();
