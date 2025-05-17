@@ -1,38 +1,74 @@
-import React from "react";
-import useSearchToggle from "../../hooks/useSearchToggle";
+// src/components/layout/Search.js
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import useSearchToggle from '../../hooks/useSearchToggle';
+
+const scaleUpHorRight = keyframes`
+  0% {
+    transform: scaleX(0.4);
+    transform-origin: 100% 100%;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
+`;
+
+const SearchToggle = styled.div`
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+`;
+
+const SearchIcon = styled.img`
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+`;
+
+const SearchBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 8px;
+    height: 40px;
+    background-color: rgb(20, 20, 20);
+    border-style: solid;
+    z-index: 100;
+    animation: ${scaleUpHorRight} 0.3s ease forwards;
+`;
+
+const SearchInput = styled.input`
+    width: 200px;
+    height: 32px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: white;
+    background-color: rgb(20, 20, 20);
+`;
 
 export default function Search() {
-  const { visible, setVisible, searchBoxRef, triggerRef, inputRef } =
-    useSearchToggle();
+    const { visible, setVisible, searchBoxRef, triggerRef, inputRef } = useSearchToggle();
 
-  return (
-    <div className="search-toggle">
-      {/* 검색 아이콘 (닫힘 상태) */}
-      <img
-        ref={triggerRef} // 검색 아이콘을 클릭할 때 검색창을 열기 위한 ref
-        src="/sources/header/search.svg"
-        alt="검색 아이콘"
-        className={`header-icon search-trigger ${visible ? "hidden" : ""}`}
-        onClick={() => setVisible(true)} // 검색 아이콘 클릭 시 검색창 열기
-      />
+    return (
+        <SearchToggle>
+            {/* 닫힌 상태: 검색 아이콘 */}
+            <SearchIcon
+                ref={triggerRef}
+                src="/sources/header/search.svg"
+                alt="검색 아이콘"
+                style={{ display: visible ? 'none' : 'block' }}
+                onClick={() => setVisible(true)}
+            />
 
-      {/* 검색창 (열림 상태) */}
-      <div
-        ref={searchBoxRef} // 검색창을 클릭할 때 검색창을 닫기 위한 ref
-        className={`search-box ${visible ? "" : "hidden"}`}
-      >
-        <img
-          src="/sources/header/search.svg"
-          className="header-icon"
-          alt="검색"
-        />
-        <input
-          ref={inputRef} // 검색창이 열릴 때 포커스를 주기 위한 ref
-          type="text"
-          placeholder="제목, 장르 등을 검색하세요"
-          className="search-input"
-        />
-      </div>
-    </div>
-  );
+            {/* 열린 상태: 검색창 */}
+            <SearchBox ref={searchBoxRef} style={{ display: visible ? 'flex' : 'none' }}>
+                <SearchIcon src="/sources/header/search.svg" alt="검색 아이콘" />
+                <SearchInput ref={inputRef} type="text" placeholder="제목, 장르 등을 검색하세요" />
+            </SearchBox>
+        </SearchToggle>
+    );
 }
