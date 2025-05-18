@@ -30,26 +30,23 @@ const CarouselContainer = styled.div`
 
 // 캐러셀 트랙: translateX로 이동 제어
 const CarouselTrack = styled.div`
-    position: relative;
-    overflow: visible;
-    z-index: 1;
     display: flex;
     transition: transform 0.3s ease-in-out;
+    will-change: transform;
 `;
 
 // 비디오 항목 컨테이너
 const VideoItemBox = styled.div`
     position: relative;
-    overflow: visible;
-    z-index: 1;
     flex: 0 0 auto;
     width: 228px;
     margin-right: 8px;
-    transition: transform 0.3s ease, z-index 0.3s;
+    z-index: 1;
+    transition: transform 0.3s ease;
 
-    &.hovered {
-        transform: scale(1.4);
-        z-index: 100;
+    &:hover {
+        transform: scale(1.2);
+        z-index: 10;
     }
 `;
 
@@ -58,7 +55,7 @@ const NavButton = styled.button`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 2;
     background: transparent;
     color: white;
     border: none;
@@ -117,11 +114,9 @@ export default function VideoList({ sectionName }) {
             {/* 캐러셀 컨테이너 */}
             <CarouselContainer onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                 <CarouselTrack style={{ transform: `translateX(-${trackTranslateX}px)` }}>
-                    {/* 확장된 썸네일 렌더링 */}
                     {extendedItems.map((item, i) => (
                         <VideoItemBox
                             key={i}
-                            className={hoveredIndex === i ? 'hovered' : ''}
                             onMouseEnter={() => setHoveredIndex(i)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >

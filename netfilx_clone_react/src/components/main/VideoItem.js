@@ -7,7 +7,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: visible;
     width: 100%;
     height: 100%;
 `;
@@ -21,8 +20,11 @@ const Thumbnail = styled.img`
     display: block;
 `;
 
-// 상세 정보 오버레이 (hover 시 썸네일 아래에 떠 있도록 설정)
+// 상세 정보 오버레이 (절대 위치, 레이아웃 밀림 방지)
 const DetailOverlay = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     padding: 12px;
     background-color: rgb(30, 30, 30);
@@ -31,6 +33,8 @@ const DetailOverlay = styled.div`
     flex-direction: column;
     gap: 12px;
     z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 `;
 
 // 아이콘 그룹 전체 래퍼
@@ -53,9 +57,9 @@ const Icon = styled.img`
     cursor: pointer;
 `;
 
-// VideoItem 컴포넌트
+// VideoItem 컴포넌트 정의
 // src: 썸네일 이미지 경로
-// expanded: 현재 hover 상태 여부 (상세 정보 표시 여부 결정)
+// expanded: hover 여부에 따라 상세 오버레이 표시
 export default function VideoItem({ src, expanded }) {
     return (
         <Container>
@@ -65,6 +69,7 @@ export default function VideoItem({ src, expanded }) {
             {/* hover 상태일 때 상세 정보 오버레이 */}
             {expanded && (
                 <DetailOverlay>
+                    {/* 아이콘 섹션 */}
                     <IconsWrapper>
                         {/* 왼쪽 아이콘 그룹 (재생, 찜, 좋아요) */}
                         <IconGroup>
@@ -80,7 +85,7 @@ export default function VideoItem({ src, expanded }) {
                     </IconsWrapper>
 
                     {/* 상세 설명 텍스트 */}
-                    <p style={{ fontSize: '14px', opacity: 0.8 }}>비디오 설명 영역입니다.</p>
+                    {/* <p style={{ fontSize: '14px', opacity: 0.8 }}>비디오 설명 영역입니다.</p> */}
                 </DetailOverlay>
             )}
         </Container>
