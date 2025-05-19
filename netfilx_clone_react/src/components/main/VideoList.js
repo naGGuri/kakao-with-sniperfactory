@@ -11,6 +11,7 @@ const TOTAL_ITEMS = 12; // 원본 항목 수
 // 리스트 전체 컨테이너
 const Container = styled.div`
     margin: 40px 0px 20px 0px;
+    padding: 0 60px;
 `;
 
 // 섹션 제목 텍스트
@@ -64,10 +65,10 @@ const NavButton = styled.button`
     padding: 8px;
 
     &.left {
-        left: 10px;
+        left: 0;
     }
     &.right {
-        right: 10px;
+        right: -60px;
     }
 `;
 

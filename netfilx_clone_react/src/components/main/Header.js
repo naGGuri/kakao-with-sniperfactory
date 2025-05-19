@@ -15,6 +15,7 @@ const Container = styled.header`
     left: 0;
     width: 100%;
     height: 70px;
+    padding: 0 80px;
     z-index: 2;
     background-color: ${(props) => (props.transparent ? 'rgba(20, 20, 20, 0.1)' : 'rgb(20, 20, 20)')};
     transition: background-color 0.3s ease;
